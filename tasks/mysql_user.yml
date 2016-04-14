@@ -1,12 +1,13 @@
 ---
 
-- name: mysql_db | Ensure database is in the desired state
-  mysql_db:
+- name: mysql_user | Ensure user is in the desired state
+  mysql_user:
     name="{{ item.name }}"
+    password="{{ item.password | default(omit) }}"
     state="{{ item.state | default(omit) }}"
+    host="{{ item.host | default(omit) }}"
+    priv="{{ item.priv | default(omit) }}"
     login_host="{{ item.login_host | default(mysql_db_host) }}"
     login_user="{{ item.login_user | default(mysql_db_user) }}"
     login_password="{{ item.login_password | default(mysql_db_pass) | default(omit) }}"
-  with_items: "{{ mysql_db }}"
-
-
+  with_items: "{{ mysql_user }}"

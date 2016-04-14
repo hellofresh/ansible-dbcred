@@ -1,10 +1,14 @@
 ---
 
 # Check for mysql db
-- include: mysql_db.yml
+- name: include mysql_db
+  include: mysql_db.yml
   when: mysql_db is defined
 
-#- include: mysql_user.yml
+- name: include mysql_user
+  include: mysql_user.yml
+  when: mysql_user is defined
+
 
 # Check for postgsql db
 #- include: postgresql_db.yml
