@@ -1,0 +1,10 @@
+---
+
+- name: mysql_db | Create an empty database 
+  mysql_db:
+    name="{{ item.name }}"
+    state="{{ item.state | default(omit) }}"
+    login_host="{{ item.login_host | default(mysql_db_host) }}"
+    login_user="{{ item.login_user | default(mysql_db_user) }}"
+    login_password="{{ item.login_password | default(omit) }}"
+  with_items: "{{ mysql_db }}"

@@ -1,0 +1,18 @@
+---
+
+mysql_db_host   : "localhost"
+mysql_db_user   : "{{ lookup('env','USER') }}"
+
+# mysql_users:
+#      - name: userblaa
+#        database: blaaDB
+#      - name: userblaa2
+#        database: blaaDB
+#      - name: userfoo
+#        database: fooDB
+
+
+# mysql_db:
+#      - name: blaaaDB
+#        state: "absent"
+#      - name: fooDB
