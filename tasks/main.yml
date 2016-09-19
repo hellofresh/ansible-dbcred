@@ -10,7 +10,9 @@
   when: mysql_user is defined
 
 
-# Check for postgsql db
-#- include: postgresql_db.yml
+
+- name: include postgres_db
+  include: postgresql_db.yml
+  when: postgres_db is defined
 
 #- include: postgresql_user.yml

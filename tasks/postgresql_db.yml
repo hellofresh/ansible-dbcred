@@ -1,0 +1,10 @@
+---
+
+- name: postgresql_db | Ensure database is in the desired state
+  postgresql_db:
+    name="{{ item.name }}"
+    encoding='UTF-8'
+    lc_collate='us_EN.UTF-8'
+    lc_ctype='us_EN.UTF-8'
+    template='template0'
+  with_items: "{{ postgres_db }}"
